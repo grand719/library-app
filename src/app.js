@@ -78,7 +78,7 @@ app.post('/rents', async (req, res, next) => {
 
         const exist = await Book.find({ _id: req.body.Book_ID });
         if (exist.length === 0) {
-            return res.status(404).send("Nie ma takiego wyporzyczenia")
+            return res.status(404).send("Nie ma takiego wypożyczenia")
         } else {
             await Book.findOneAndUpdate({ _id: req.body.Book_ID }, { isRent: true })
             await rent.save()

@@ -12,14 +12,14 @@ const textArea = document.querySelector('textarea');
 
 renderCellUser = (id, pesel, data) => {
     const cell = document.createElement("p");
-    cell.textContent = `Id książki: ${id} | Pesel użytkownika: ${pesel} | Data wyporzyczenia: ${data}`;
+    cell.textContent = `Id książki: ${id} | Pesel użytkownika: ${pesel} | Data wypożyczenia: ${data}`;
 
     return cell;
 }
 
 renderCellRents = (id, pesel, data) => {
     const cell = document.createElement("p");
-    cell.textContent = `Id książki: ${id} | Pesel użytkownika: ${pesel} | Data wyporzyczenia: ${data}`;
+    cell.textContent = `Id książki: ${id} | Pesel użytkownika: ${pesel} | Data wypożyczenia: ${data}`;
 
     return cell;
 }
