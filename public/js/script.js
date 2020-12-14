@@ -33,7 +33,7 @@ renderCellBooks = (_id, title, Author, Description) => {
 
 formAddBook.addEventListener('submit', (e) => {
 
-    fetch('http://localhost:3000/book', {
+    fetch('/book', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json; charset=utf-8'
@@ -53,7 +53,7 @@ formAddBook.addEventListener('submit', (e) => {
 formAddRent.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    fetch('http://localhost:3000/rents', {
+    fetch('/rents', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json; charset=utf-8'
@@ -71,7 +71,7 @@ formAddRent.addEventListener('submit', (e) => {
 
 formDeleteRent.addEventListener('submit', (e) => {
     // e.preventDefault();
-    fetch('http://localhost:3000/rents', {
+    fetch('/rents', {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json; charset=utf-8'
