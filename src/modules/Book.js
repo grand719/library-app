@@ -5,6 +5,7 @@ const shortid = require("shortid");
 const Book = mongoose.model('Books', {
     _id: {
         type: String,
+        trim: true,
         default: shortid.generate
     },
     Title: {
