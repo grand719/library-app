@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Biblioteka</title>
+</head>
+
+<body>
+    <div class="wraper">
+        <header>
+            <h1>Biblioteka</h1>
+        </header>
+        <nav class="menu">
+
+            <button class="rents">Wyporzyczenia</button>
+            <button class="books">Dostępne książki</button>
+            {{!-- <a href="/">Biblioteka</a>
+            <a href="/rents">Wyporzyczenia</a>
+            <a href="/book/available">Dostępne książki</a> --}}
+        </nav>
+        <div class="wraper--froms">
+            <div class="popUp hidden">
+                <div class="hide"><i class="fas fa-times"></i></div>
+            </div>
+            <form action="" id="add--book-form">
+                <h2>Dodawanie książek</h2>
+                <div>Tytuł <input type="text" name="Title"></div>
+                <div>Autor <input type="text" name="Author"></div>
+                <div>Opis <textarea name="Description" cols="50" rows="3"></textarea></div>
+                <div><input type="submit" value="Dodaj"></div>
+            </form>
+            <form action="" id="add--rents-form">
+                <h2>Dodawanie wyporzyczeń</h2>
+                <div>Pesel użytkownika <input type="text" name="User_Pesel"></div>
+                <div>Numer książki <input type="text" name="Book_ID"></div>
+                <div><input type="submit" value="Wyporzycz"></div>
+            </form>
+            <form action="" id="delete--rents-form">
+                <h2>Usuwanie wyporzyczeń</h2>
+                <div>Numer książki <input type="text" name="Book_ID"></div>
+                <div><input type="submit" value="Usuń"></div>
+            </form>
+            <form action="" id="search--rentsUser-form">
+                <h2>Wyszukiwanie wyporzyczeń po peselu</h2>
+                <div>Pesel <input type="text" name="Pesel"></div>
+                <div><input type="submit" value="Wyszukaj"></div>
+            </form>
+
+        </div>
+        <footer>
+            <p>Łukasz Pawłowski</p>
+
+        </footer>
+    </div>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

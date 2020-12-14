@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    width: 100%;
+    height: 100px;
+    background-color: gray;
+   
+}
+
+.wraper--froms{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    flex-grow: 1;
+}
+form{
+   display: flex;
+   flex-direction: column;
+   margin-top: 20px;
+   width: 50%;
+}
+nav {
+    height: 50px;
+    width: 100%;
+    margin-top: 10px;
+}
+nav button{
+    text-decoration: none;
+    border: 2px  solid black;
+    border-radius: 2px;
+    padding: 5px;
+    color: black;
+}
+button:hover {
+    background-color: black;
+    color: white;
+    border-color: white;
+    cursor: pointer;
+}
+.wraper{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    max-width: 900px;
+    height: 100vh;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#add--book-form div{
+    display: flex;
+    justify-content: space-between;
+}
+#add--rents-form div{
+    display: flex;
+    justify-content: space-between;
+}
+#delete--rents-form div{
+    display: flex;
+    justify-content: space-between;
+}
+
+#search--rentsUser-form div{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+footer{
+    width: 100%;
+    height: 50px;
+    background-color: gray;
+}
+footer p {
+    margin-top: 30px;
+}
+
+.hidden {
+    display: none;
+}
+.popUp{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: scroll;
+}
+.popUp p {
+    border: 2px solid black;
+    padding: 5px;
+}
+.hide{
+    height: 24px;
+    width: 24px;
+    text-align: center;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 0%;
+    left: calc(100% - 24px);
+    cursor: pointer;
+}
+p:nth-of-type(1) {
+    margin-top: 30px;
+}
+.fa-times{
+    font-size: 24px;
+    color: white;
+}
