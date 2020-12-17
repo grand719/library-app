@@ -10,6 +10,13 @@ const find = document.querySelector('#search--rentsUser-form input');
 
 const textArea = document.querySelector('textarea');
 
+
+const date = new Date();
+setDate = () => {
+    const d = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 14, date.getHours(), date.getMinutes(), date.getSeconds())
+    return d;
+}
+
 renderCellUser = (id, pesel, data) => {
     const cell = document.createElement("p");
     cell.textContent = `Id książki: ${id} | Pesel użytkownika: ${pesel} | Data wypożyczenia: ${data}`;
@@ -62,6 +69,7 @@ formAddRent.addEventListener('submit', (e) => {
             User_Pesel: inputsRent[0].value,
             Book_ID: inputsRent[1].value,
             Rent_Date: new Date(),
+            Rent_to: setDate()
         })
     }).then(data => {
         alert(`${data.status}    ${data.statusText}`)
