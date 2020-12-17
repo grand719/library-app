@@ -14,6 +14,10 @@ const Rents = mongoose.model('Rents', {
         required: true,
         unique: true
     },
+    Title: {
+        type: String,
+        trim: true,
+    },
     Rent_Date: {
         type: Date,
         required: true,

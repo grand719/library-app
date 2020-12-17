@@ -73,7 +73,7 @@ app.get('/book/:bookId', async (req, res) => {
 })
 
 app.post('/rents', async (req, res, next) => {
-    const rent = new Rents(req.body);
+
     try {
 
         const exist = await Book.find({ _id: req.body.Book_ID });
@@ -81,6 +81,13 @@ app.post('/rents', async (req, res, next) => {
             return res.status(404).send("Nie ma takiego wypożyczenia")
         } else {
             await Book.findOneAndUpdate({ _id: req.body.Book_ID }, { isRent: true })
+            const rent = new Rents({
+                User_Pesel: req.body.User_Pesel,
+                Book_ID: req.body.Book_ID,
+                Title: exist[0].Title,
+                Rent_Date: req.body.Rent_Date,
+                Rent_to: req.body.Rent_to
+            });
             await rent.save()
             res.status(201).send(rent)
         }
