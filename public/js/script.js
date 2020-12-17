@@ -17,16 +17,16 @@ setDate = () => {
     return d;
 }
 
-renderCellUser = (id, pesel, data) => {
+renderCellUser = (id, pesel, data, dateEnd) => {
     const cell = document.createElement("p");
-    cell.textContent = `Id książki: ${id} | Pesel użytkownika: ${pesel} | Data wypożyczenia: ${data}`;
+    cell.textContent = `Id książki: ${id} | Pesel użytkownika: ${pesel} | Data wypożyczenia: ${data} | Wypożyczone do: ${dateEnd}`;
 
     return cell;
 }
 
 renderCellRents = (id, pesel, data) => {
     const cell = document.createElement("p");
-    cell.textContent = `Id książki: ${id} | Pesel użytkownika: ${pesel} | Data wypożyczenia: ${data}`;
+    cell.textContent = `Id książki: ${id} | Pesel użytkownika: ${pesel} | Data wypożyczenia: ${data} | Wypożyczone do: ${dateEnd}`;
 
     return cell;
 }
@@ -106,7 +106,7 @@ document.querySelector(".rents").addEventListener('click', (e) => {
     fetch(`/rents`).then((response) => {
         response.json().then((data) => {
             data.forEach((cell) => {
-                showData.appendChild(renderCellRents(cell.Book_ID, cell.User_Pesel, cell.Rent_Date));
+                showData.appendChild(renderCellRents(cell.Book_ID, cell.User_Pesel, cell.Rent_Date, cell.Rent_to));
             })
         })
     })
@@ -151,7 +151,7 @@ document.querySelector("#search--rentsUser-form").addEventListener('submit', (e)
     fetch(`/rents/pesel/${find.value}`).then((response) => {
         response.json().then((data) => {
             data.forEach((cell) => {
-                showData.appendChild(renderCellUser(cell.Book_ID, cell.User_Pesel, cell.Rent_Date));
+                showData.appendChild(renderCellUser(cell.Book_ID, cell.User_Pesel, cell.Rent_Date, cell.Rent_to));
             })
         })
     })
