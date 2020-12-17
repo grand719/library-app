@@ -24,7 +24,7 @@ renderCellUser = (id, pesel, data, dateEnd) => {
     return cell;
 }
 
-renderCellRents = (id, pesel, data) => {
+renderCellRents = (id, pesel, data, dateEnd) => {
     const cell = document.createElement("p");
     cell.textContent = `Id książki: ${id} | Pesel użytkownika: ${pesel} | Data wypożyczenia: ${data} | Wypożyczone do: ${dateEnd}`;
 
