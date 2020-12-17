@@ -19,11 +19,7 @@ setDate = () => {
 
 renderCellUser = (id, pesel, data, dateEnd, title) => {
     const cell = document.createElement("p");
-    cell.textContent = `Id książki: ${id}
-                        Tytuł: ${title} 
-                        Pesel użytkownika: ${pesel}
-                        Data wypożyczenia: ${data} 
-                        Wypożyczone do: ${dateEnd}`;
+    cell.textContent = `Id książki: ${id} | Tytuł: ${title} | Pesel użytkownika: ${pesel} | Data wypożyczenia: ${data} | Wypożyczone do: ${dateEnd}`;
 
     return cell;
 }
