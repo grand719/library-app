@@ -58,7 +58,6 @@ formAddBook.addEventListener('submit', (e) => {
 });
 
 formAddRent.addEventListener('submit', (e) => {
-    e.preventDefault();
 
     fetch('/rents', {
         method: 'POST',
