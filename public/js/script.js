@@ -38,7 +38,41 @@ renderCellBooks = (_id, title, Author, Description) => {
     return cell;
 }
 
+showRents = () => {
+    const reset = [...document.querySelectorAll(".popUp p")]
+    reset.forEach((element) => {
+        element.remove();
+    })
+
+    fetch(`/rents`).then((response) => {
+        response.json().then((data) => {
+            data.forEach((cell) => {
+                showData.appendChild(renderCellRents(cell.Book_ID, cell.User_Pesel, cell.Rent_Date, cell.Rent_to, cell.Title));
+            })
+        })
+    })
+    showData.classList.toggle("hidden");
+
+}
+
+showBooks = () => {
+    const reset = [...document.querySelectorAll(".popUp p")]
+    reset.forEach((element) => {
+        element.remove();
+    })
+    fetch(`/book/available`).then((response) => {
+        response.json().then((data) => {
+            data.forEach((cell) => {
+                showData.appendChild(renderCellBooks(cell._id, cell.Title, cell.Author, cell.Description));
+            })
+        })
+    })
+
+    showData.classList.toggle("hidden");
+}
+
 formAddBook.addEventListener('submit', (e) => {
+    e.preventDefault();
 
     fetch('/book', {
         method: 'POST',
@@ -52,12 +86,15 @@ formAddBook.addEventListener('submit', (e) => {
             isRent: false
         })
     }).then(data => {
-        console.log(data);
+        alert(`${data.status}    ${data.statusText}`)
         return;
     })
+
+    showBooks()
 });
 
 formAddRent.addEventListener('submit', (e) => {
+    e.preventDefault();
 
     fetch('/rents', {
         method: 'POST',
@@ -74,10 +111,12 @@ formAddRent.addEventListener('submit', (e) => {
         alert(`${data.status}    ${data.statusText}`)
         return;
     })
+
+    showRents();
 });
 
 formDeleteRent.addEventListener('submit', (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     fetch('/rents', {
         method: 'DELETE',
         headers: {
@@ -87,56 +126,34 @@ formDeleteRent.addEventListener('submit', (e) => {
             Book_ID: inputsDelete[0].value,
         })
     }).then(data => {
-        console.log(data);
+        alert(`${data.status}    ${data.statusText}`)
         return;
     })
+    showRents();
 });
 
 // id, title, pesel, data
 
+
 document.querySelector(".rents").addEventListener('click', (e) => {
     e.preventDefault();
-
-    const reset = [...document.querySelectorAll(".popUp p")]
-    reset.forEach((element) => {
-        element.remove();
-    })
-
-    fetch(`/rents`).then((response) => {
-        response.json().then((data) => {
-            data.forEach((cell) => {
-                showData.appendChild(renderCellRents(cell.Book_ID, cell.User_Pesel, cell.Rent_Date, cell.Rent_to, cell.Title));
-            })
-        })
-    })
-    showData.classList.toggle("hidden");
-
+    showRents(e)
 })
 
 // Book_ID, title, Author, Description
 
+
+
 document.querySelector(".books").addEventListener('click', (e) => {
     e.preventDefault();
-    const reset = [...document.querySelectorAll(".popUp p")]
-    reset.forEach((element) => {
-        element.remove();
-    })
-    fetch(`/book/available`).then((response) => {
-        response.json().then((data) => {
-            data.forEach((cell) => {
-                showData.appendChild(renderCellBooks(cell._id, cell.Title, cell.Author, cell.Description));
-            })
-        })
-    })
-
-    showData.classList.toggle("hidden");
-})
+    showBooks()
+});
 
 document.querySelector(".hide").addEventListener('click', () => {
-
     showData.classList.toggle("hidden");
 
 })
+
 
 
 document.querySelector("#search--rentsUser-form").addEventListener('submit', (e) => {
